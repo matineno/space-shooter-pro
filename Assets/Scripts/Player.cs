@@ -25,16 +25,15 @@ public class Player : MonoBehaviour
     {
         float horiziontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
+
                             //new Vector3(1, 0, 0) * 3.5 * horizontalInput * real time
         //transform.Translate(Vector3.right * _speed * horiziontalInput * Time.deltaTime);
                             //new Vector3(0, 1, 0) * 3.5 * verticalInput * real time
         //transform.Translate(Vector3.up * _speed * verticalInput * Time.deltaTime);
         //transform.Translate(new Vector3(horiziontalInput, verticalInput, 0) * _speed * Time.deltaTime);
         Vector3 direction = new Vector3(horiziontalInput, verticalInput, 0);
-        transform.Translate(direction * _speed * Time.deltaTime);
 
-        //if player position on the y is greater that 0
-        //y position = 0
+        transform.Translate(direction * _speed * Time.deltaTime);
 
 
     }
