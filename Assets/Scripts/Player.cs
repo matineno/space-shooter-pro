@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     //optional value assigned
     [SerializeField] //Serialize data so it can be read and modified in the inspector
     private float _speed = 3.5f;
+    [SerializeField]
+    private GameObject _laserPrefab;
 
 
     // Start is called before the first frame update
@@ -24,6 +26,14 @@ public class Player : MonoBehaviour
     void Update() 
     {
         CalculateMovement();
+
+        //if i hit the space key
+        //spawn gameObject
+
+        if (Input.GetKeyDown(KeyCode.Space)) 
+        {
+            Instantiate(_laserPrefab, transform.position, Quaternion.identity);
+        }
 
     }
 
