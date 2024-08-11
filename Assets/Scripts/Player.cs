@@ -23,12 +23,17 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update() 
     {
+        CalculateMovement();
+
+    }
+
+    void CalculateMovement() {
         float horiziontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
-                            //new Vector3(1, 0, 0) * 3.5 * horizontalInput * real time
+        //new Vector3(1, 0, 0) * 3.5 * horizontalInput * real time
         //transform.Translate(Vector3.right * _speed * horiziontalInput * Time.deltaTime);
-                            //new Vector3(0, 1, 0) * 3.5 * verticalInput * real time
+        //new Vector3(0, 1, 0) * 3.5 * verticalInput * real time
         //transform.Translate(Vector3.up * _speed * verticalInput * Time.deltaTime);
         //transform.Translate(new Vector3(horiziontalInput, verticalInput, 0) * _speed * Time.deltaTime);
         Vector3 direction = new Vector3(horiziontalInput, verticalInput, 0);
@@ -41,28 +46,19 @@ public class Player : MonoBehaviour
         //else if player position on the y is less than -3.8
         //y position = -3.8
 
-        if (transform.position.y >=0) 
-        {   
-            transform.position = new Vector3(transform.position.x, 0, 0);
-        }
-        else if (transform.position.y <= -3.8f)
-        {
-            transform.position = new Vector3(transform.position.x, -3.8f, 0);
-        }
+        //Using Mathf.Clamp to limit the player's movement on the y axis instead of using if statements
+        transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -3.8f, 0), 0);
 
         // PLAYER BOUNDARIES ON THE X AXIS with wrap around
         //if player position on the x is greater than 10.25
         //x position = -10.25
         //else if player position on the x is less than -10.25
         //x position = 10.25
-        if (transform.position.x >= 10.25f) 
-        {
+        if (transform.position.x >= 10.25f) {
             transform.position = new Vector3(-10.25f, transform.position.y, 0);
         }
-        else if (transform.position.x <= -10.25f)
-        {
+        else if (transform.position.x <= -10.25f) {
             transform.position = new Vector3(10.25f, transform.position.y, 0);
         }
-
     }
 }
