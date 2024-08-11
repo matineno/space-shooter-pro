@@ -31,8 +31,7 @@ public class Player : MonoBehaviour
         CalculateMovement();
 
         //if space key is pressed
-        if (Input.GetKeyDown(KeyCode.Space) && Time.time > _canFire) 
-        {
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time > _canFire) {
             FireLaser();
         }
 
