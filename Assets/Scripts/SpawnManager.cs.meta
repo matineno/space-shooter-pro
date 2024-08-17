@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 8a4fe3603822a8940916d28622b97f03
+guid: e80e69beeff72cc4e9a890256b36d0cf
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - _laserPrefab: {fileID: 7603890585902002426, guid: 95fef7271aec955408244ddda2802e4f,
+  - _enemyPrefab: {fileID: 4681892963835824025, guid: 9fbebd8078d131947968b82f05e764f4,
       type: 3}
   executionOrder: 0
   icon: {instanceID: 0}

@@ -108,6 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 4
+  _ememyPrefab: {fileID: 4681892963835824025}
 --- !u!54 &2742728362768868852
 Rigidbody:
   m_ObjectHideFlags: 0
