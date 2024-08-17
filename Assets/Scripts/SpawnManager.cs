@@ -17,7 +17,7 @@ public class SpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(SpawnRoutine());
+        StartCoroutine(SpawnEnemyRoutine());
     }
 
     // Update is called once per frame
@@ -31,7 +31,7 @@ public class SpawnManager : MonoBehaviour
     //while loop
 
 
-    IEnumerator SpawnRoutine() 
+    IEnumerator SpawnEnemyRoutine() 
     {
         //while loop (inifinite loop)
         //Instantiate enemy prefab
