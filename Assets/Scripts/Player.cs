@@ -20,7 +20,6 @@ public class Player : MonoBehaviour
     private SpawnManager _spawnManager;
 
     //variable for isTripleShotActive
-    [SerializeField]
     private bool _isTripleShotActive = false;
     [SerializeField]
     private GameObject _tripleShotPrefab;
@@ -111,7 +110,13 @@ public class Player : MonoBehaviour
         }
     }
 
-    IEnumerator TripleShotActive() 
+    public void TripleShotActive() 
+    {
+        _isTripleShotActive = true;
+        StartCoroutine(TripleShotPowerDownRoutine());
+    }
+
+    IEnumerator TripleShotPowerDownRoutine() 
     {
         while(_isTripleShotActive == true) 
         {
