@@ -297,6 +297,7 @@ GameObject:
   - component: {fileID: 842677921}
   - component: {fileID: 842677920}
   - component: {fileID: 842677923}
+  - component: {fileID: 842677924}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -413,6 +414,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.3286657, y: 4.112378}
   m_EdgeRadius: 0
+--- !u!114 &842677924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 842677919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a4fe3603822a8940916d28622b97f03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 10
+  _laserPrefab: {fileID: 0}
+  _fireRate: 0.5
+  _lives: 3
+  _tripleShotPrefab: {fileID: 0}
 --- !u!1 &1171171246
 GameObject:
   m_ObjectHideFlags: 0
@@ -570,12 +588,12 @@ PrefabInstance:
     - target: {fileID: 8465920283929534228, guid: b5848eefd87f00f42b4f76e06b051dc9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -4.5
       objectReference: {fileID: 0}
     - target: {fileID: 8465920283929534228, guid: b5848eefd87f00f42b4f76e06b051dc9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.25
+      value: 4.32
       objectReference: {fileID: 0}
     - target: {fileID: 8465920283929534228, guid: b5848eefd87f00f42b4f76e06b051dc9,
         type: 3}
@@ -674,12 +692,12 @@ PrefabInstance:
     - target: {fileID: 3221163875102924027, guid: b6eb474b29f70624385632cbfb47f666,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 3.8
       objectReference: {fileID: 0}
     - target: {fileID: 3221163875102924027, guid: b6eb474b29f70624385632cbfb47f666,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.89
+      value: 4.87
       objectReference: {fileID: 0}
     - target: {fileID: 3221163875102924027, guid: b6eb474b29f70624385632cbfb47f666,
         type: 3}

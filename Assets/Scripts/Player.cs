@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     //optional value assigned
     [SerializeField] //Serialize data so it can be read and modified in the inspector
     private float _speed = 3.5f;
+    private float _speedMultiplier = 2;
     [SerializeField]
     private GameObject _laserPrefab;
     [SerializeField]
@@ -21,6 +22,7 @@ public class Player : MonoBehaviour
 
     //variable for isTripleShotActive
     private bool _isTripleShotActive = false;
+    private bool _isSpeedBoostActive = false;
     [SerializeField]
     private GameObject _tripleShotPrefab;
 
@@ -123,5 +125,20 @@ public class Player : MonoBehaviour
             yield return new WaitForSeconds(5.0f);
             _isTripleShotActive = false;
         }
+    }
+
+    public void SpeedBoostActive() 
+    {
+        _isSpeedBoostActive = true;
+        _speed *= _speedMultiplier;
+        StartCoroutine(SpeedBoostPowerDownRoutine());
+    }
+
+    IEnumerator SpeedBoostPowerDownRoutine() 
+    {
+        yield return new WaitForSeconds(5.0f);
+        _isSpeedBoostActive = false;
+        _speed /= _speedMultiplier;
+        
     }
 }
