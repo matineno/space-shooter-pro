@@ -556,8 +556,10 @@ MonoBehaviour:
   _enemyPrefab: {fileID: 4681892963835824025, guid: 9fbebd8078d131947968b82f05e764f4,
     type: 3}
   _enemyContainer: {fileID: 1442622859}
-  _tripleShotPowerupPrefab: {fileID: 3221163875102924020, guid: b6eb474b29f70624385632cbfb47f666,
-    type: 3}
+  powerups:
+  - {fileID: 3221163875102924020, guid: b6eb474b29f70624385632cbfb47f666, type: 3}
+  - {fileID: 8465920283929534441, guid: b5848eefd87f00f42b4f76e06b051dc9, type: 3}
+  - {fileID: 0}
 --- !u!4 &1264014116
 Transform:
   m_ObjectHideFlags: 0
