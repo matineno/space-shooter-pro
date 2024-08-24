@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
     //variable for isTripleShotActive
     private bool _isTripleShotActive = false;
     private bool _isSpeedBoostActive = false;
+    private bool _isShieldsActive = false;
     [SerializeField]
     private GameObject _tripleShotPrefab;
 
@@ -103,6 +104,16 @@ public class Player : MonoBehaviour
 
     public void Damage() 
     {
+        //if shields are active
+        //do nothing...
+        //deactivate the shields
+        //return
+
+        if (_isShieldsActive == true) 
+        {
+            _isShieldsActive = false;
+            return;
+        }
         _lives --;
 
         if ( _lives < 1)
@@ -141,4 +152,10 @@ public class Player : MonoBehaviour
         _speed /= _speedMultiplier;
         
     }
+
+    public void ShieldsActive() 
+    {
+        _isShieldsActive = true;
+    }
+
 }
