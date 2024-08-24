@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     //optional value assigned
     [SerializeField] //Serialize data so it can be read and modified in the inspector
     private float _speed = 3.5f;
+    private float _speedMultiplier = 2;
     [SerializeField]
     private GameObject _laserPrefab;
     [SerializeField]
@@ -18,6 +19,17 @@ public class Player : MonoBehaviour
     [SerializeField]
     private int _lives = 3;
     private SpawnManager _spawnManager;
+
+    //variable for isTripleShotActive
+    private bool _isTripleShotActive = false;
+    private bool _isSpeedBoostActive = false;
+    private bool _isShieldsActive = false;
+    [SerializeField]
+    private GameObject _tripleShotPrefab;
+
+    //variable reference to the shield visualizer
+    [SerializeField]
+    private GameObject _shieldVisualizer;
 
 
     // Start is called before the first frame update
@@ -84,17 +96,72 @@ public class Player : MonoBehaviour
     void FireLaser() 
     {
         _canFire = Time.time + _fireRate;
-        Instantiate(_laserPrefab, transform.position + new Vector3(0, 1.058f, 0), Quaternion.identity);
+
+        if (_isTripleShotActive) {
+            Instantiate(_tripleShotPrefab, transform.position, Quaternion.identity);
+        }
+        else 
+        {
+            Instantiate(_laserPrefab, transform.position + new Vector3(0, 1.05f, 0), Quaternion.identity);
+        }
     }
 
     public void Damage() 
     {
+        //if shields are active
+        //do nothing...
+        //deactivate the shields
+        //return
+
+        if (_isShieldsActive == true) 
+        {
+            _isShieldsActive = false;
+            _shieldVisualizer.SetActive(false);
+            return;
+        }
         _lives --;
 
         if ( _lives < 1)
         {
             _spawnManager.OnPlayerDeath();
             Destroy(this.gameObject);
-}
+        }
     }
+
+    public void TripleShotActive() 
+    {
+        _isTripleShotActive = true;
+        StartCoroutine(TripleShotPowerDownRoutine());
+    }
+
+    IEnumerator TripleShotPowerDownRoutine() 
+    {
+        while(_isTripleShotActive == true) 
+        {
+            yield return new WaitForSeconds(5.0f);
+            _isTripleShotActive = false;
+        }
+    }
+
+    public void SpeedBoostActive() 
+    {
+        _isSpeedBoostActive = true;
+        _speed *= _speedMultiplier;
+        StartCoroutine(SpeedBoostPowerDownRoutine());
+    }
+
+    IEnumerator SpeedBoostPowerDownRoutine() 
+    {
+        yield return new WaitForSeconds(5.0f);
+        _isSpeedBoostActive = false;
+        _speed /= _speedMultiplier;
+        
+    }
+
+    public void ShieldsActive() 
+    {
+        _isShieldsActive = true;
+        _shieldVisualizer.SetActive(true);
+    }
+
 }
