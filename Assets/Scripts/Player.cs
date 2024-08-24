@@ -27,6 +27,10 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject _tripleShotPrefab;
 
+    //variable reference to the shield visualizer
+    [SerializeField]
+    private GameObject _shieldVisualizer;
+
 
     // Start is called before the first frame update
     void Start()
@@ -112,6 +116,7 @@ public class Player : MonoBehaviour
         if (_isShieldsActive == true) 
         {
             _isShieldsActive = false;
+            _shieldVisualizer.SetActive(false);
             return;
         }
         _lives --;
@@ -156,6 +161,7 @@ public class Player : MonoBehaviour
     public void ShieldsActive() 
     {
         _isShieldsActive = true;
+        _shieldVisualizer.SetActive(true);
     }
 
 }
